@@ -7,20 +7,6 @@
   let tree = {
     label: "root",
     children: [
-      // {
-      //   label: "Folder A",
-      //   children: [
-      //     {
-      //       label: "Folder D",
-      //       children: [
-      //         { label: "File 1" },
-      //         { label: "File 2" },
-      //         { label: "File 3" },
-      //       ],
-      //     },
-      //     { label: "File 4" },
-      //   ],
-      // },
     ],
   };
 
@@ -66,11 +52,11 @@
         // If selected Directory is Folder
         if (selectedDirType === "Folder") {
           // If Subfolder exists
-          if (treeClone?.children.find((child) => !!child.children) && selectedLabel !== "root") {
+          if (treeClone?.children.find((child) => !!child.children)) {
             alert("Can't add more than 1 Folder in a Directory");
             break;
           }
-          // new folder is alwyas first children
+          // new folder is always first children
           treeClone.children.unshift({ label: name, children: [] });
           alert(`Success : Folder ${name} created.`);
           name = "";
